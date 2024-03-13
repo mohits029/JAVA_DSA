@@ -8,4 +8,5 @@ class Node {
         this.data= data;
         this.next= null;
     }
+
 }

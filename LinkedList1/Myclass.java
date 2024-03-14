@@ -1,6 +1,13 @@
 package LinkedList1;
 
 public class Myclass {
+
+    public static void display(Node temp){
+        while (temp!=null) {
+            System.out.print(temp.data+" ");
+            temp= temp.next;
+        }
+    }
     public static void main(String[] args) {
         Node p1= new Node(10);
         Node p2= new Node(20);
@@ -29,11 +36,9 @@ public class Myclass {
         p2.next= mi;
         mi.next= p3;
 
-        Node curr= head;
-        while (curr!=null) {
-            System.out.println(curr.data);
-            curr= curr.next; 
-        }
+        display(head);
+        
+
 
     }
 }

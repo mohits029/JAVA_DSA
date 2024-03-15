@@ -39,6 +39,35 @@ public class LinkedList5 {
         }
     }
 
+    public void addinIndex(int data, int indx){
+        Node newNode= new Node(data);
+        
+        if(head== null){
+            head= newNode;
+            tail= newNode;
+        }
+
+        else if(indx==0){
+            newNode.next= head;
+            head= newNode;
+        }
+
+        else{
+            int i=0;
+            Node curr= head;
+
+            while (i<indx) {
+                if(i==indx-1){
+                    Node temp= curr.next;
+                    curr.next= newNode;
+                    newNode.next= temp;
+                }
+                curr= curr.next;
+                i++;
+            }
+        }
+    }
+
     public void display(Node curr){
         while (curr!= null) {
             System.out.print(curr.data+" -> ");
@@ -54,7 +83,9 @@ public class LinkedList5 {
         list1.addLast(40);
 
         list1.addFirst(500);
-        list1.addFirst(600);
+        list1.addFirst(600);        
+        list1.addinIndex(400, 3);
+
 
         list1.display(list1.head);
 

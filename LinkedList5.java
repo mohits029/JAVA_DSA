@@ -68,11 +68,54 @@ public class LinkedList5 {
         }
     }
 
+    public int removeFirst(){
+        if(head== null){
+            return -1;
+        }
+        else if(head.next== null){
+            int x=  head.data;
+            head= null;
+            tail= null;
+            return x;
+
+        }
+        else{
+            int x= head.data;
+            head= head.next;
+            return x;
+
+        }
+    }
+
+    public int removeLast(){
+        if(head== null){
+            return -1;
+        }
+        else if(head.next== null){
+            int x= head.data;
+            head= tail= null;
+            return x;
+
+        }
+        else{
+            Node curr= head;
+            
+            while (curr.next.next!=null) {
+                curr= curr.next;
+            }
+            int x= curr.next.data;
+            tail= curr;
+            curr.next= null;
+            return x;
+        }
+    }
     public void display(Node curr){
         while (curr!= null) {
             System.out.print(curr.data+" -> ");
             curr= curr.next;
         }
+        System.out.println(curr);
+
     }
 
     public static void main(String[] args) {
@@ -81,13 +124,23 @@ public class LinkedList5 {
         list1.addLast(20);
         list1.addLast(30);
         list1.addLast(40);
-
         list1.addFirst(500);
         list1.addFirst(600);        
         list1.addinIndex(400, 3);
 
+        System.out.println("print Actual linked list: ");
+        list1.display(head);
 
-        list1.display(list1.head);
+        // list1.removeFirst();
+        // list1.removeFirst();
+        list1.removeLast();
+        list1.removeLast();
+
+        System.out.println("print after deleting: ");
+        list1.display(head);
+
+
+        
 
     }
 }

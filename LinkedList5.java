@@ -109,6 +109,21 @@ public class LinkedList5 {
             return x;
         }
     }
+
+    public int iterative_search(Node curr, int key){
+        if(curr== null){
+            return -1;
+        }
+
+        while (curr!= null) {
+            if(curr.data==key){
+                return curr.data;
+            }
+            curr= curr.next;
+        }
+        return -1;
+    }
+
     public void display(Node curr){
         while (curr!= null) {
             System.out.print(curr.data+" -> ");
@@ -139,6 +154,7 @@ public class LinkedList5 {
         System.out.println("print after deleting: ");
         list1.display(head);
 
+        System.out.println(list1.iterative_search(head, 20));
 
         
 
